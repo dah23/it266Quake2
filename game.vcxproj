@@ -445,6 +445,7 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug Alpha|Win32'"> /QA21164 /MTd   /QA21164 /MTd </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release Alpha|Win32'"> /QA21164   /QA21164 </AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="S_CAM.C" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="g_local.h" />
@@ -468,6 +469,7 @@
     <ClInclude Include="m_mutant.h" />
     <ClInclude Include="m_parasite.h" />
     <ClInclude Include="m_player.h" />
+    <ClInclude Include="m_rider.h" />
     <ClInclude Include="m_soldier.h" />
     <ClInclude Include="m_supertank.h" />
     <ClInclude Include="m_tank.h" />

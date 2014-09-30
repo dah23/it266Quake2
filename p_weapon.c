@@ -205,6 +205,11 @@ void ChangeWeapon (edict_t *ent)
 			ent->client->anim_end = FRAME_pain304;
 			
 	}
+	////
+	//Checks if Chasecam is on, if not it will put the weapon model you'r using on the screen.
+	if(!ent->client->chasetoggle)
+            ent->client->ps.gunindex = gi.modelindex(ent->client->pers.weapon->view_model);
+ 
 }
 
 /*

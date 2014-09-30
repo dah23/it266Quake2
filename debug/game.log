@@ -1,9 +1,12 @@
-﻿Build started 9/16/2014 2:52:32 AM.
-     1>Project "C:\games\quake2\src\game.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
+﻿Build started 9/29/2014 8:37:08 PM.
+     1>Project "C:\games\quake2\src\game.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file ".\debug\game.lastbuildstate".
+       InitializeBuildStatus:
          Creating ".\debug\game.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D BUILDING_REF_GL /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm /EHsc /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\debug\\" /Fd".\debug\vc100.pdb" /FR".\debug\\" /Gd /TC /analyze- /errorReport:prompt g_ai.c g_chase.c g_cmds.c g_combat.c g_func.c g_items.c g_main.c g_misc.c g_monster.c g_phys.c g_save.c g_spawn.c g_svcmds.c g_target.c g_trigger.c g_turret.c g_utils.c g_weapon.c m_actor.c m_berserk.c m_boss2.c m_boss3.c m_boss31.c m_boss32.c m_brain.c m_chick.c m_flash.c m_flipper.c m_float.c m_flyer.c m_gladiator.c m_gunner.c m_hover.c m_infantry.c m_insane.c m_medic.c m_move.c m_mutant.c m_parasite.c m_soldier.c m_supertank.c m_tank.c p_client.c p_hud.c p_trail.c p_view.c p_weapon.c q_shared.c
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D BUILDING_REF_GL /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm /EHsc /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\debug\\" /Fd".\debug\vc100.pdb" /FR".\debug\\" /Gd /TC /analyze- /errorReport:prompt g_ai.c g_chase.c g_cmds.c g_combat.c g_func.c g_items.c g_main.c g_misc.c g_monster.c g_phys.c g_save.c g_spawn.c g_svcmds.c g_target.c g_trigger.c g_turret.c g_utils.c g_weapon.c m_actor.c m_berserk.c m_boss2.c m_boss3.c m_boss31.c m_boss32.c m_brain.c m_chick.c m_flash.c m_flipper.c m_float.c m_flyer.c m_gladiator.c m_gunner.c m_hover.c m_infantry.c m_insane.c m_medic.c m_move.c m_mutant.c m_parasite.c m_soldier.c m_supertank.c m_tank.c p_client.c p_hud.c p_trail.c p_view.c p_weapon.c q_shared.c S_CAM.C
+         S_CAM.C
          q_shared.c
      1>c:\games\quake2\src\q_shared.c(857): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(188) : see declaration of 'strncpy'
@@ -47,9 +50,9 @@
          m_gunner.c
          m_gladiator.c
          m_flyer.c
-         m_float.c
          Generating Code...
          Compiling...
+         m_float.c
          m_flipper.c
          m_flash.c
          m_chick.c
@@ -107,9 +110,9 @@
      1>c:\games\quake2\src\g_save.c(672): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : see declaration of 'fopen'
          g_phys.c
-         g_monster.c
          Generating Code...
          Compiling...
+         g_monster.c
          g_misc.c
      1>c:\games\quake2\src\g_misc.c(1681): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\time.inl(112) : see declaration of 'localtime'
@@ -154,6 +157,7 @@
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
      1>c:\games\quake2\src\g_cmds.c(878): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
+     1>c:\games\quake2\src\g_cmds.c(973): warning C4013: 'Cmd_Chasecam_Toggle' undefined; assuming extern returning int
          g_chase.c
          g_ai.c
          Generating Code...
@@ -208,18 +212,19 @@
          .\debug\p_view.obj
          .\debug\p_weapon.obj
          .\debug\q_shared.obj
+         .\debug\S_CAM.obj
      1>g_ai.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
             Creating library .\..\debug\gamex86.lib and object .\..\debug\gamex86.exp
          game.vcxproj -> C:\games\quake2\src\.\..\debug\game.dll
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\debug\gamex86.dll;#2" /manifest .\debug\game.dll.intermediate.manifest
        BscMake:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\..\debug\game.bsc" .\debug\g_ai.sbr .\debug\g_chase.sbr .\debug\g_cmds.sbr .\debug\g_combat.sbr .\debug\g_func.sbr .\debug\g_items.sbr .\debug\g_main.sbr .\debug\g_misc.sbr .\debug\g_monster.sbr .\debug\g_phys.sbr .\debug\g_save.sbr .\debug\g_spawn.sbr .\debug\g_svcmds.sbr .\debug\g_target.sbr .\debug\g_trigger.sbr .\debug\g_turret.sbr .\debug\g_utils.sbr .\debug\g_weapon.sbr .\debug\m_actor.sbr .\debug\m_berserk.sbr .\debug\m_boss2.sbr .\debug\m_boss3.sbr .\debug\m_boss31.sbr .\debug\m_boss32.sbr .\debug\m_brain.sbr .\debug\m_chick.sbr .\debug\m_flash.sbr .\debug\m_flipper.sbr .\debug\m_float.sbr .\debug\m_flyer.sbr .\debug\m_gladiator.sbr .\debug\m_gunner.sbr .\debug\m_hover.sbr .\debug\m_infantry.sbr .\debug\m_insane.sbr .\debug\m_medic.sbr .\debug\m_move.sbr .\debug\m_mutant.sbr .\debug\m_parasite.sbr .\debug\m_soldier.sbr .\debug\m_supertank.sbr .\debug\m_tank.sbr .\debug\p_client.sbr .\debug\p_hud.sbr .\debug\p_trail.sbr .\debug\p_view.sbr .\debug\p_weapon.sbr .\debug\q_shared.sbr
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\..\debug\game.bsc" .\debug\g_ai.sbr .\debug\g_chase.sbr .\debug\g_cmds.sbr .\debug\g_combat.sbr .\debug\g_func.sbr .\debug\g_items.sbr .\debug\g_main.sbr .\debug\g_misc.sbr .\debug\g_monster.sbr .\debug\g_phys.sbr .\debug\g_save.sbr .\debug\g_spawn.sbr .\debug\g_svcmds.sbr .\debug\g_target.sbr .\debug\g_trigger.sbr .\debug\g_turret.sbr .\debug\g_utils.sbr .\debug\g_weapon.sbr .\debug\m_actor.sbr .\debug\m_berserk.sbr .\debug\m_boss2.sbr .\debug\m_boss3.sbr .\debug\m_boss31.sbr .\debug\m_boss32.sbr .\debug\m_brain.sbr .\debug\m_chick.sbr .\debug\m_flash.sbr .\debug\m_flipper.sbr .\debug\m_float.sbr .\debug\m_flyer.sbr .\debug\m_gladiator.sbr .\debug\m_gunner.sbr .\debug\m_hover.sbr .\debug\m_infantry.sbr .\debug\m_insane.sbr .\debug\m_medic.sbr .\debug\m_move.sbr .\debug\m_mutant.sbr .\debug\m_parasite.sbr .\debug\m_soldier.sbr .\debug\m_supertank.sbr .\debug\m_tank.sbr .\debug\p_client.sbr .\debug\p_hud.sbr .\debug\p_trail.sbr .\debug\p_view.sbr .\debug\p_weapon.sbr .\debug\q_shared.sbr .\debug\S_CAM.sbr
        FinalizeBuildStatus:
          Deleting file ".\debug\game.unsuccessfulbuild".
          Touching ".\debug\game.lastbuildstate".
-     1>Done Building Project "C:\games\quake2\src\game.vcxproj" (build target(s)).
+     1>Done Building Project "C:\games\quake2\src\game.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.67
+Time Elapsed 00:00:03.41

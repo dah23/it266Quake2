@@ -159,6 +159,9 @@
     <ClCompile Include="q_shared.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="S_CAM.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="g_local.h">
@@ -234,6 +237,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="q_shared.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_rider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

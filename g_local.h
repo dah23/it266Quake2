@@ -941,7 +941,20 @@ struct gclient_s
 
 	edict_t		*chase_target;		// player we are chasing
 	qboolean	update_chase;		// need to update chase info?
-};
+
+	///////////////////////
+	/*ChaseCam Variables*/
+	//////////////////////
+
+	int chasetoggle;
+	edict_t *chasecam;
+	edict_t *oldplayer;
+
+	//////////////////////
+	/*Chase toggle shows whether the cam is on or not.*/
+	/*Old player is for display purposes*/
+	//////////////////////
+} ;
 
 
 struct edict_s
@@ -1091,5 +1104,18 @@ struct edict_s
 	// common data blocks
 	moveinfo_t		moveinfo;
 	monsterinfo_t	monsterinfo;
+
+	///////////////////
+	/*ChaseCam Stuff*/
+	//////////////////
+
+
+	int			chasedist1;
+	int			chasedist2;
+	//Determines distaces between the camera an the player.
+
+
 };
 
+// Compiler-define later
+extern void CheckChasecam_Viewent(edict_t *ent);
