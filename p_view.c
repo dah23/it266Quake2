@@ -277,8 +277,14 @@ void SV_CalcViewOffset (edict_t *ent)
 	VectorClear (v);
 
 	// add view height
-
+	
+	//////////////////////////////////////////
+	//removes gun and makes "third person" camera
+	////////////////////////////////////
+	
+	v[0] -= 100; //view set behind "player"
 	v[2] += ent->viewheight;
+	ent->client->ps.gunindex = 0; //removes player's gun from camera view
 
 	// add fall height
 
@@ -302,10 +308,11 @@ void SV_CalcViewOffset (edict_t *ent)
 	//////
 
 	VectorAdd (v, ent->client->kick_origin, v);
-
+	/*
 	// absolutely bound offsets
 	// so the view can never be outside the player box
 
+<<<<<<< Updated upstream
 		if (!ent->client->chasetoggle)
 		{
 			 if (v[0] < -14)
@@ -333,6 +340,23 @@ void SV_CalcViewOffset (edict_t *ent)
             }
          }
         VectorCopy (v, ent->client->ps.viewoffset);
+=======
+	if (v[0] < -14)
+		v[0] = -14;
+	else if (v[0] > 14)
+		v[0] = 14;
+	if (v[1] < -14)
+		v[1] = -14;
+	else if (v[1] > 14)
+		v[1] = 14;
+	if (v[2] < -22)
+		v[2] = -22;
+	else if (v[2] > 30)
+		v[2] = 30;
+	*/
+
+	VectorCopy (v, ent->client->ps.viewoffset);
+>>>>>>> Stashed changes
 }
 
 /*

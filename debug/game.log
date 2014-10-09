@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿Build started 9/29/2014 8:37:08 PM.
      1>Project "C:\games\quake2\src\game.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
@@ -161,6 +162,15 @@
          g_chase.c
          g_ai.c
          Generating Code...
+=======
+﻿Build started 10/9/2014 12:28:28 AM.
+     1>Project "C:\games\quake2\src\game.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\debug\game.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D BUILDING_REF_GL /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm /EHsc /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\debug\\" /Fd".\debug\vc100.pdb" /FR".\debug\\" /Gd /TC /analyze- /errorReport:prompt p_view.c
+         p_view.c
+>>>>>>> Stashed changes
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\games\quake2\src\.\..\debug\game.dll) does not match the Linker's OutputFile property value (C:\games\quake2\debug\gamex86.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(game) does not match the Linker's OutputFile property value (gamex86). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
        Link:
@@ -227,4 +237,8 @@
 
 Build succeeded.
 
+<<<<<<< Updated upstream
 Time Elapsed 00:00:03.41
+=======
+Time Elapsed 00:00:02.88
+>>>>>>> Stashed changes
