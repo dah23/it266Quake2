@@ -1,6 +1,8 @@
 #include "g_local.h"
 #include "m_player.h"
 
+void Mark_Dummy_Spawn_Point(edict_t *ent);
+void Spawn_Dummy(edict_t *ent);
 
 char *ClientTeam (edict_t *ent)
 {
@@ -968,6 +970,13 @@ void ClientCommand (edict_t *ent)
 		Cmd_Wave_f (ent);
 	else if (Q_stricmp(cmd, "playerlist") == 0)
 		Cmd_PlayerList_f(ent);
+	else if (Q_stricmp(cmd, "playerlist") == 0)
+        Cmd_PlayerList_f(ent);
+    else if (Q_stricmp (cmd, "markpoint") == 0)
+        Mark_Dummy_Spawn_Point(ent);
+    else if (Q_stricmp (cmd, "spawndummy") == 0)
+        Spawn_Dummy(ent);
+	
 	else	// anything that doesn't match a command will be a chat
 		Cmd_Say_f (ent, false, true);
 }
