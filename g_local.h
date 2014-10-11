@@ -1104,25 +1104,7 @@ struct edict_s
 	// common data blocks
 	moveinfo_t		moveinfo;
 	monsterinfo_t	monsterinfo;
-<<<<<<< Updated upstream
 
-	///////////////////
-	/*ChaseCam Stuff*/
-	//////////////////
-
-
-	int			chasedist1;
-	int			chasedist2;
-	//Determines distaces between the camera an the player.
-
-
-=======
-	
-	//variable for character that gets shot in place of the actual player 
-	//for third person cam
-	edict_t fake_player
->>>>>>> Stashed changes
-};
-
-// Compiler-define later
-extern void CheckChasecam_Viewent(edict_t *ent);
+	vec3_t         third_point;
+    int            thirdpointset;
+}
