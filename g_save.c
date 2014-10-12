@@ -176,6 +176,11 @@ void InitGame (void)
 	bob_pitch = gi.cvar ("bob_pitch", "0.002", 0);
 	bob_roll = gi.cvar ("bob_roll", "0.002", 0);
 
+//SKULL
+        tpp = gi.cvar ("tpp", "1", 0);
+        crossh = gi.cvar ("crossh", "1", 0);
+//END
+
 	// flood control
 	flood_msgs = gi.cvar ("flood_msgs", "4", 0);
 	flood_persecond = gi.cvar ("flood_persecond", "4", 0);

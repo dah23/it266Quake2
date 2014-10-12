@@ -729,11 +729,18 @@ void SV_Physics_Toss (edict_t *ent)
 		ent->waterlevel = 1;
 	else
 		ent->waterlevel = 0;
-
+//SKULL
+        //Don't do the sounds for the camera
+        if (Q_stricmp(ent->classname,"chasecam"))
+        {
+//END
 	if (!wasinwater && isinwater)
 		gi.positioned_sound (old_origin, g_edicts, CHAN_AUTO, gi.soundindex("misc/h2ohit1.wav"), 1, 1, 0);
 	else if (wasinwater && !isinwater)
 		gi.positioned_sound (ent->s.origin, g_edicts, CHAN_AUTO, gi.soundindex("misc/h2ohit1.wav"), 1, 1, 0);
+//SKULL
+        }
+//END
 
 // move teamslaves
 	for (slave = ent->teamchain; slave; slave = slave->teamchain)

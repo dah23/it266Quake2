@@ -67,6 +67,10 @@ void BeginIntermission (edict_t *targ)
 		client = g_edicts + 1 + i;
 		if (!client->inuse)
 			continue;
+//SKULL
+                //Save it off over level changes
+                client->client->pers.chasetoggle = client->client->chasetoggle;
+//END
 		if (client->health <= 0)
 			respawn(client);
 	}
@@ -494,8 +498,12 @@ void G_SetStats (edict_t *ent)
 	//
 	if (ent->client->pers.helpchanged && (level.framenum&8) )
 		ent->client->ps.stats[STAT_HELPICON] = gi.imageindex ("i_help");
-	else if ( (ent->client->pers.hand == CENTER_HANDED || ent->client->ps.fov > 91)
-		&& ent->client->pers.weapon)
+        else if ( (ent->client->pers.hand == CENTER_HANDED || ent->client->ps.fov > 91
+                //SKULL
+                /* Display the current weapon if chase is on */
+                || (ent->client->chasetoggle)
+                //END
+                ) && ent->client->pers.weapon)
 		ent->client->ps.stats[STAT_HELPICON] = gi.imageindex (ent->client->pers.weapon->icon);
 	else
 		ent->client->ps.stats[STAT_HELPICON] = 0;
