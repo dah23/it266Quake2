@@ -275,9 +275,9 @@ void SV_CalcViewOffset (edict_t *ent)
 	// base origin
 
 	VectorClear (v);
-
+	v[0] +=40;
 	// add view height
-
+	
 	v[2] += ent->viewheight;
 
 	// add fall height
@@ -301,7 +301,7 @@ void SV_CalcViewOffset (edict_t *ent)
 
 	// absolutely bound offsets
 	// so the view can never be outside the player box
-
+	/*
 	if (v[0] < -14)
 		v[0] = -14;
 	else if (v[0] > 14)
@@ -314,7 +314,7 @@ void SV_CalcViewOffset (edict_t *ent)
 		v[2] = -22;
 	else if (v[2] > 30)
 		v[2] = 30;
-
+	*/
 	VectorCopy (v, ent->client->ps.viewoffset);
 }
 
@@ -357,7 +357,7 @@ void SV_CalcGunOffset (edict_t *ent)
 	}
 
 	// gun height
-	VectorClear (ent->client->ps.gunoffset);
+	//VectorClear (ent->client->ps.gunoffset);
 //	ent->ps->gunorigin[2] += bob;
 
 	// gun_x / gun_y / gun_z are development tools
@@ -367,6 +367,7 @@ void SV_CalcGunOffset (edict_t *ent)
 		ent->client->ps.gunoffset[i] += right[i]*gun_x->value;
 		ent->client->ps.gunoffset[i] += up[i]* (-gun_z->value);
 	}
+	 ent->client->ps.gunindex = 0;//removes gun
 }
 
 
