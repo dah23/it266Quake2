@@ -1,5 +1,6 @@
 #include "g_local.h"
 #include "m_player.h"
+#include "grapple.h"
 
 void ClientUserinfoChanged (edict_t *ent, char *userinfo);
 
@@ -482,6 +483,9 @@ player_die
 void player_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damage, vec3_t point)
 {
 	int		n;
+
+	if(self->client->hook)
+		Release_Grapple(self->client->hook);
 
 	VectorClear (self->avelocity);
 
@@ -1578,6 +1582,17 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 		return;
 	}
 
+	 if (client->on_hook == true)
+    {
+        Pull_Grapple(ent);
+        client->ps.pmove.gravity = 0;
+    }
+    else
+    {
+        client->ps.pmove.gravity = sv_gravity->value;
+    }
+
+
 	pm_passent = ent;
 
 	if (ent->client->chase_target) {
@@ -1600,7 +1615,7 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 		else
 			client->ps.pmove.pm_type = PM_NORMAL;
 
-		client->ps.pmove.gravity = sv_gravity->value;
+		//client->ps.pmove.gravity = sv_gravity->value;
 		pm.s = client->ps.pmove;
 
 		for (i=0 ; i<3 ; i++)
@@ -1712,6 +1727,14 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 			Think_Weapon (ent);
 		}
 	}
+	
+	if (ent->client->buttons & BUTTON_USE && !ent->deadflag && client->hook_frame <= level.framenum)
+		Throw_Grapple (ent);     
+    
+    if(Ended_Grappling (client) && !ent->deadflag && client->hook)
+		Release_Grapple (client->hook);
+    
+
 
 	if (client->resp.spectator) {
 		if (ucmd->upmove >= 10) {
@@ -1732,6 +1755,7 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 		if (other->inuse && other->client->chase_target == ent)
 			UpdateChaseCam(other);
 	}
+
 }
 
 

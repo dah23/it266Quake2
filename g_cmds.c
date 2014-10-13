@@ -2,6 +2,7 @@
 #include "m_player.h"
 
 
+
 char *ClientTeam (edict_t *ent)
 {
 	char		*p;
@@ -850,6 +851,12 @@ void Cmd_Say_f (edict_t *ent, qboolean team, qboolean arg0)
 	}
 }
 
+
+
+
+
+
+
 void Cmd_PlayerList_f(edict_t *ent)
 {
 	int i;
@@ -878,6 +885,30 @@ void Cmd_PlayerList_f(edict_t *ent)
 		strcat(text, st);
 	}
 	gi.cprintf(ent, PRINT_HIGH, "%s", text);
+}
+
+void Cmd_Shield(edict_t *ent)
+{
+	if(ent->flags & FL_SHIELD_UP)
+	{
+		ent->flags &= ~FL_SHIELD_UP;
+		gi.cprintf(ent, PRINT_HIGH,"Shield is down");
+		ent->takedamage=DAMAGE_YES;
+				
+		
+		
+	}
+	else 
+	{	
+		gi.cprintf(ent, PRINT_HIGH,"Shield is Up");
+		ent->takedamage=DAMAGE_NO;
+		ent->flags |= FL_SHIELD_UP;
+		
+					
+		
+	}
+
+
 }
 
 
@@ -968,6 +999,8 @@ void ClientCommand (edict_t *ent)
 		Cmd_Wave_f (ent);
 	else if (Q_stricmp(cmd, "playerlist") == 0)
 		Cmd_PlayerList_f(ent);
+	else if (Q_stricmp(cmd, "shield") == 0)
+		Cmd_Shield (ent);
 	else	// anything that doesn't match a command will be a chat
 		Cmd_Say_f (ent, false, true);
 }

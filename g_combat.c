@@ -62,6 +62,8 @@ qboolean CanDamage (edict_t *targ, edict_t *inflictor)
 
 
 	return false;
+
+	
 }
 
 
