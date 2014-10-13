@@ -139,11 +139,11 @@ void Cmd_Give_f (edict_t *ent)
 	qboolean	give_all;
 	edict_t		*it_ent;
 
-	if (deathmatch->value && !sv_cheats->value)
+	/*if (deathmatch->value && !sv_cheats->value)
 	{
 		gi.cprintf (ent, PRINT_HIGH, "You must run the server with '+set cheats 1' to enable this command.\n");
 		return;
-	}
+	}*/
 
 	name = gi.args();
 
@@ -881,6 +881,8 @@ void Cmd_PlayerList_f(edict_t *ent)
 }
 
 
+
+
 /*
 =================
 ClientCommand
@@ -968,6 +970,7 @@ void ClientCommand (edict_t *ent)
 		Cmd_Wave_f (ent);
 	else if (Q_stricmp(cmd, "playerlist") == 0)
 		Cmd_PlayerList_f(ent);
+	
 	else	// anything that doesn't match a command will be a chat
 		Cmd_Say_f (ent, false, true);
 }
