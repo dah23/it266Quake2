@@ -5,6 +5,31 @@ qboolean	Pickup_Weapon (edict_t *ent, edict_t *other);
 void		Use_Weapon (edict_t *ent, gitem_t *inv);
 void		Drop_Weapon (edict_t *ent, gitem_t *inv);
 
+void Use_Healthpotion (edict_t *ent, gitem_t *item)
+{
+	if (ent->health<200)
+	{
+		ent->health+=20;
+        ent->client->pers.inventory[ITEM_INDEX(item)]--;
+        ValidateSelectedItem (ent);
+    }
+    else
+		return;
+}
+
+void Use_Magicpotion (edict_t *ent, gitem_t *item)
+{
+	if (ent->health<200)
+	{
+		ent->client->pers.inventory[ITEM_INDEX(FindItem("Cells"))] +=20;
+        ent->client->pers.inventory[ITEM_INDEX(item)]--;
+        ValidateSelectedItem (ent);
+    }
+    else
+		return;
+}
+
+
 void Weapon_Blaster (edict_t *ent);
 void Weapon_Shotgun (edict_t *ent);
 void Weapon_SuperShotgun (edict_t *ent);
@@ -2091,6 +2116,49 @@ tank commander's head
 		0,
 /* precache */ "items/s_health.wav items/n_health.wav items/l_health.wav items/m_health.wav"
 	},
+
+
+	{
+		"item_healthpotion",
+        Pickup_Powerup,
+        Use_Healthpotion,
+        Drop_General,
+        NULL,
+        "items/pkup.wav",
+        "models/items/pack/tris.md2", EF_ROTATE,
+        NULL,
+		"i_pack",
+		"Health Potion",
+		180,
+        NULL,
+        IT_POWERUP,
+        0,
+        NULL,
+        0,
+		/* precache */ ""
+    },
+
+
+	{
+		"item_magicpotion",
+        Pickup_Powerup,
+        Use_Magicpotion,
+        Drop_General,
+        NULL,
+        "items/pkup.wav",
+        "models/items/pack/tris.md2", EF_ROTATE,
+        NULL,
+		"i_pack",
+		"Magic Potion",
+		180,
+        NULL,
+        IT_POWERUP,
+        0,
+        NULL,
+        0,
+		/* precache */ ""
+    },
+
 
 	// end of list marker
 	{NULL}
