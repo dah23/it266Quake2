@@ -1063,7 +1063,6 @@ void PrecacheItem (gitem_t *it)
 SpawnItem
 
 Sets the clipping size and plants the object on the floor.
-
 Items can't be immediately dropped to floor, because they might
 be on an entity that hasn't spawned yet.
 ============
@@ -1656,7 +1655,7 @@ always owned, never in the world
 		Drop_Ammo,
 		NULL,
 		"misc/am_pkup.wav",
-		"models/items/ammo/rockets/medium/tris.md2", 0,
+		"models/objects/rocket/tris.md2", 0,
 		NULL,
 /* icon */		"a_rockets",
 /* pickup */	"Rockets",
