@@ -951,6 +951,26 @@ void Cmd_Cloak_f (edict_t *ent)
 }
 
 
+void CMD_DekuLeaf_f(edict_t *ent)
+{
+	vec3_t  start;
+	vec3_t  forward;
+	vec3_t  end;
+	trace_t tr;
+
+	VectorCopy(ent->s.origin, start);
+	start[2] += ent->viewheight;
+	AngleVectors(ent->client->v_angle, forward, NULL, NULL);
+	VectorMA(start, 8192, forward, end);
+	tr = gi.trace(start, NULL, NULL, end, ent, MASK_SHOT);
+	if ( tr.ent && ((tr.ent->svflags & SVF_MONSTER) || (tr.ent->client)) )
+	{
+		   VectorScale(forward, 5000, forward);
+		VectorAdd(forward, tr.ent->velocity, tr.ent->velocity);
+	}
+
+
+}
 
 
 /*
@@ -1046,8 +1066,8 @@ void ClientCommand (edict_t *ent)
             Cmd_Cloak_f(ent);
 	 else if (Q_stricmp (cmd, "flash") == 0)
 		Cmd_FlashGrenade_f (ent);
-
-
+	else if (Q_stricmp (cmd, "leaf") == 0)
+		CMD_DekuLeaf_f(ent);
 	else	// anything that doesn't match a command will be a chat
 		Cmd_Say_f (ent, false, true);
 }
