@@ -3,7 +3,6 @@
 #include "g_local.h"
 #include "m_player.h"
 
-
 static qboolean	is_quad;
 static byte		is_silenced;
 
@@ -1413,3 +1412,4 @@ void Weapon_BFG (edict_t *ent)
 
 
 //======================================================================
+#include "Sword.h"
