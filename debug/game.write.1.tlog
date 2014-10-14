@@ -19,6 +19,7 @@ C:\games\quake2\debug\gamex86.exp
 ^C:\games\quake2\src\game.vcxproj
 C:\games\quake2\debug\gamex86.lib
 C:\games\quake2\debug\gamex86.exp
+<<<<<<< HEAD
 ^C:\games\quake2\src\game.vcxproj
 C:\games\quake2\debug\gamex86.lib
 C:\games\quake2\debug\gamex86.exp
@@ -49,3 +50,5 @@ C:\games\quake2\debug\gamex86.exp
 C:\games\quake2\debug\gamex86.lib
 C:\games\quake2\debug\gamex86.exp
 >>>>>>> bow
+=======
+>>>>>>> flashgrenades
