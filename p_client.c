@@ -1212,6 +1212,9 @@ void PutClientInServer (edict_t *ent)
 	VectorCopy (ent->s.angles, client->ps.viewangles);
 	VectorCopy (ent->s.angles, client->v_angle);
 
+	client->grenadeType = GRENADE_NORMAL;
+	client->blindBase = 0;
+	client->blindTime = 0;
 	// spawn a spectator
 	if (client->pers.spectator) {
 		client->chase_target = NULL;

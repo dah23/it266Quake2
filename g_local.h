@@ -941,6 +941,8 @@ struct gclient_s
 
 	edict_t		*chase_target;		// player we are chasing
 	qboolean	update_chase;		// need to update chase info?
+	int			grenadeType;
+	float		blindTime, blindBase;
 };
 
 
@@ -1093,3 +1095,5 @@ struct edict_s
 	monsterinfo_t	monsterinfo;
 };
 
+#define		GRENADE_NORMAL		0
+#define		GRENADE_FLASH		1
