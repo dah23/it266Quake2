@@ -949,8 +949,12 @@ struct gclient_s
 	//Grapple Variables
     edict_t        *hook;        
     edict_t        *hook_touch;  
-    qboolean    on_hook;      
+    qboolean		on_hook;      
     int             hook_frame;
+	//cloak
+	int    cloak;
+	int    cloakrun;
+	int    cloakoff;
 
  
 

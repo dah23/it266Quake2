@@ -929,6 +929,27 @@ void Cmd_PlayerList_f(edict_t *ent)
 	gi.cprintf(ent, PRINT_HIGH, "%s", text);
 }
 
+void Cmd_Cloak_f (edict_t *ent) 
+{
+    if (ent->client->cloak) // we're on
+    {
+        ent->client->cloak = 0;
+        gi.cprintf(ent,PRINT_HIGH,"Cloaking OFF\n");
+        ent->svflags &= ~SVF_NOCLIENT;
+    }
+    else // we're off
+    {
+        ent->client->cloak = 1;
+
+        ent->client->cloakrun = 0;
+
+        ent->client->cloakoff = 0;
+        gi.cprintf(ent,PRINT_HIGH,"Claoking ON\n");
+        gi.sound(ent, CHAN_ITEM, gi.soundindex("floater/fltpain1.wav"), 1, ATTN_NORM, 0);
+        ent->svflags |= SVF_NOCLIENT;
+    }
+}
+
 
 
 
@@ -1021,8 +1042,8 @@ void ClientCommand (edict_t *ent)
 		Cmd_PlayerList_f(ent);
 	else if (Q_stricmp(cmd, "hook") == 0)
 		Cmd_Hook_f(ent);
-
-
+	else if (Q_stricmp (cmd, "cloak") == 0)
+            Cmd_Cloak_f(ent);
 	 else if (Q_stricmp (cmd, "flash") == 0)
 		Cmd_FlashGrenade_f (ent);
 

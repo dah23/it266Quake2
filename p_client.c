@@ -1698,6 +1698,41 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 			VectorCopy (pm.viewangles, client->v_angle);
 			VectorCopy (pm.viewangles, client->ps.viewangles);
 		}
+		//handle cloak-drain cells(magic)
+
+		if (ent->client->cloak)
+        {
+			if (ent->client->pers.inventory[ITEM_INDEX(FindItem("Cells"))] >= 1)
+            {
+				ent->client->cloakrun ++;
+                if (ent->client->cloakrun == 10)
+                {
+					ent->client->pers.inventory[ITEM_INDEX(FindItem("Cells"))] -= 1;
+                    ent->client->cloakrun = 0;
+                }
+			}
+            else
+            {
+				ent->svflags &= ~SVF_NOCLIENT;
+                ent->client->cloak = 0;
+			}       
+            if (ent->client->pers.inventory[ITEM_INDEX(FindItem("Cells"))] < 1)
+            {
+				ent->client->cloakoff ++;
+                if (ent->client->cloakoff == 1)
+                {
+					gi.cprintf(ent,PRINT_HIGH,"Cloaking OFF\n");    
+                    ent->svflags &= ~SVF_NOCLIENT;
+                    ent->client->cloak = 0;
+                    ent->client->cloakoff = 2;
+                }
+            }    
+		}  
+
+
+
+
+
 
 		gi.linkentity (ent);
 
