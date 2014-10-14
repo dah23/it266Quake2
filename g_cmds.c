@@ -1,6 +1,6 @@
 #include "g_local.h"
 #include "m_player.h"
-
+#include "grapple.h"
 
 char *ClientTeam (edict_t *ent)
 {
@@ -880,6 +880,25 @@ void Cmd_FlashGrenade_f(edict_t *ent)
 }
 
 
+void Cmd_Hook_f(edict_t *ent)
+{
+    if(ent->flags & FL_HOOK)
+	{
+         Release_Grapple (ent->client->hook);
+		 ent->flags &= ~FL_HOOK;
+	}
+	else
+	{
+		Throw_Grapple (ent); 
+		ent->flags |= FL_HOOK;
+		
+	}
+	
+    
+    
+	
+}
+
 void Cmd_PlayerList_f(edict_t *ent)
 {
 	int i;
@@ -1000,8 +1019,9 @@ void ClientCommand (edict_t *ent)
 		Cmd_Wave_f (ent);
 	else if (Q_stricmp(cmd, "playerlist") == 0)
 		Cmd_PlayerList_f(ent);
+	else if (Q_stricmp(cmd, "hook") == 0)
+		Cmd_Hook_f(ent);
 
-	
 
 	 else if (Q_stricmp (cmd, "flash") == 0)
 		Cmd_FlashGrenade_f (ent);

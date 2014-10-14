@@ -51,6 +51,8 @@
 #define FL_RESPAWN				0x80000000	// used for item respawning
 
 
+#define FL_HOOK					0x40000000
+
 #define	FRAMETIME		0.1
 
 // memory tags to allow dynamic memory to be cleaned up
@@ -943,6 +945,15 @@ struct gclient_s
 	qboolean	update_chase;		// need to update chase info?
 	int			grenadeType;
 	float		blindTime, blindBase;
+
+	//Grapple Variables
+    edict_t        *hook;        
+    edict_t        *hook_touch;  
+    qboolean    on_hook;      
+    int             hook_frame;
+
+ 
+
 };
 
 
@@ -1097,3 +1108,5 @@ struct edict_s
 
 #define		GRENADE_NORMAL		0
 #define		GRENADE_FLASH		1
+
+void stuffcmd(edict_t *e, char *s);
