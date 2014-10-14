@@ -1,40 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-﻿Build started 10/14/2014 12:11:11 AM.
-=======
-﻿Build started 10/13/2014 4:45:50 AM.
->>>>>>> bow
-=======
-﻿Build started 10/13/2014 8:43:08 PM.
->>>>>>> flashgrenades
+﻿Build started 10/14/2014 1:00:33 AM.
      1>Project "C:\games\quake2\src\game.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating ".\debug\game.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching ".\debug\game.unsuccessfulbuild".
        ClCompile:
-<<<<<<< HEAD
-<<<<<<< HEAD
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D BUILDING_REF_GL /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm /EHsc /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\debug\\" /Fd".\debug\vc100.pdb" /FR".\debug\\" /Gd /TC /analyze- /errorReport:prompt g_cmds.c g_items.c p_client.c p_weapon.c
-         p_weapon.c
-     1>c:\games\quake2\src\sword.h(23): warning C4047: 'function' : 'int' differs in levels of indirection from 'void *'
-     1>c:\games\quake2\src\sword.h(23): warning C4024: 'T_Damage' : different types for formal and actual parameter 10
-         p_client.c
-     1>c:\games\quake2\src\p_client.c(1373): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
-     1>c:\games\quake2\src\p_client.c(1378): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(188) : see declaration of 'strncpy'
-     1>c:\games\quake2\src\p_client.c(1418): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(188) : see declaration of 'strncpy'
-         g_items.c
-     1>c:\games\quake2\src\g_items.c(1574): warning C4047: 'initializing' : 'int' differs in levels of indirection from 'void *'
-     1>c:\games\quake2\src\g_items.c(1578): warning C4047: 'initializing' : 'int' differs in levels of indirection from 'char [37]'
-     1>c:\games\quake2\src\g_items.c(2162): warning C4047: 'initializing' : 'int' differs in levels of indirection from 'void *'
-     1>c:\games\quake2\src\g_items.c(2163): warning C4047: 'initializing' : 'char *' differs in levels of indirection from 'int'
-     1>c:\games\quake2\src\g_items.c(2165): warning C4047: 'initializing' : 'int' differs in levels of indirection from 'void *'
-     1>c:\games\quake2\src\g_items.c(2168): warning C4047: 'initializing' : 'int' differs in levels of indirection from 'char [1]'
-     1>c:\games\quake2\src\g_items.c(2183): warning C4047: 'initializing' : 'int' differs in levels of indirection from 'void *'
-     1>c:\games\quake2\src\g_items.c(2184): warning C4047: 'initializing' : 'char *' differs in levels of indirection from 'int'
-     1>c:\games\quake2\src\g_items.c(2186): warning C4047: 'initializing' : 'int' differs in levels of indirection from 'void *'
-     1>c:\games\quake2\src\g_items.c(2189): warning C4047: 'initializing' : 'int' differs in levels of indirection from 'char [1]'
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D BUILDING_REF_GL /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm /EHsc /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\debug\\" /Fd".\debug\vc100.pdb" /FR".\debug\\" /Gd /TC /analyze- /errorReport:prompt g_cmds.c
          g_cmds.c
      1>c:\games\quake2\src\g_cmds.c(15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
@@ -56,19 +25,10 @@
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
      1>c:\games\quake2\src\g_cmds.c(822): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
-     1>c:\games\quake2\src\g_cmds.c(887): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\games\quake2\src\g_cmds.c(904): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
-     1>c:\games\quake2\src\g_cmds.c(891): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\games\quake2\src\g_cmds.c(908): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
-         Generating Code...
-=======
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D BUILDING_REF_GL /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm /EHsc /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\debug\\" /Fd".\debug\vc100.pdb" /FR".\debug\\" /Gd /TC /analyze- /errorReport:prompt g_weapon.c
-         g_weapon.c
->>>>>>> bow
-=======
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D BUILDING_REF_GL /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm /EHsc /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\debug\\" /Fd".\debug\vc100.pdb" /FR".\debug\\" /Gd /TC /analyze- /errorReport:prompt g_weapon.c
-         g_weapon.c
->>>>>>> flashgrenades
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\games\quake2\src\.\..\debug\game.dll) does not match the Linker's OutputFile property value (C:\games\quake2\debug\gamex86.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(game) does not match the Linker's OutputFile property value (gamex86). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
        Link:
@@ -134,12 +94,4 @@
 
 Build succeeded.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Time Elapsed 00:00:01.09
-=======
-Time Elapsed 00:00:00.68
->>>>>>> bow
-=======
-Time Elapsed 00:00:00.74
->>>>>>> flashgrenades
+Time Elapsed 00:00:01.12
