@@ -595,6 +595,15 @@ void InitClientPersistant (gclient_t *client)
     client->pers.inventory[ITEM_INDEX(item)] = 1;
 	/////////////////
 
+	item = FindItem("Rocket Launcher");
+    client->pers.inventory[ITEM_INDEX(item)] = 2;
+
+	item = FindItem("Health Potion");
+    client->pers.inventory[ITEM_INDEX(item)] = 3;
+
+	item = FindItem("Magic Potion");
+    client->pers.inventory[ITEM_INDEX(item)] = 4;
+
 	item = FindItem("Blaster");
 	client->pers.selected_item = ITEM_INDEX(item);
 	client->pers.inventory[client->pers.selected_item] = 1;
