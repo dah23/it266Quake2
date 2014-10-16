@@ -399,7 +399,7 @@ void Cmd_Use_f (edict_t *ent)
 		return;
 	}
 
-	//allows multiple weapons to one hotkey
+	//allows multiple weapons to one hotkey-(for sword)
 	else if (!Q_stricmp(s, ent->client->pers.weapon->pickup_name)) 
     {    
 		if (!Q_stricmp(s, "Blaster"))    
@@ -407,7 +407,8 @@ void Cmd_Use_f (edict_t *ent)
             it = FindItem ("Sword");
  
         }
-		else if (!Q_stricmp(s, "Shotgun")){
+		else if (!Q_stricmp(s, "Shotgun"))
+		{
             it = FindItem ("SuperShotgun");
 		}  
     }

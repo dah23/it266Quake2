@@ -2,7 +2,7 @@
 #define SWORD_DEATHMATCH_DAMAGE 150
 #define SWORD_KICK 500
 #define SWORD_RANGE 35
-
+//defines sword weapon
 void fire_sword ( edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick)
 {
 	trace_t tr;
@@ -13,20 +13,20 @@ void fire_sword ( edict_t *self, vec3_t start, vec3_t aimdir, int damage, int ki
 	tr = gi.trace (self->s.origin, NULL, NULL, start, self, MASK_SHOT);
 	
 
-	
+	//checks to see if ou can hit it
 	if (!((tr.surface) && (tr.surface->flags & SURF_SKY)))
 	{
 		if (tr.fraction < 1.0)
         {
-			if (tr.ent->takedamage)
+			if (tr.ent->takedamage)  //if enemy
 			{
 				T_Damage (tr.ent, self, self, aimdir, tr.endpos, tr.plane.normal, damage, kick, 0, NULL);
 				gi.sound (self, CHAN_AUTO, gi.soundindex("misc/fhit3.wav") , 1, ATTN_NORM, 0);
 			}				
-			else
+			else //wall
 			{
 				gi.WriteByte (svc_temp_entity);
-				gi.WriteByte (TE_SPARKS);
+				gi.WriteByte (TE_SPARKS); //make sparks
 				gi.WritePosition (tr.endpos);
 				gi.WriteDir (tr.plane.normal);
 				gi.multicast (tr.endpos, MULTICAST_PVS);
