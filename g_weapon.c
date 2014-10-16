@@ -342,7 +342,7 @@ void fire_blaster (edict_t *self, vec3_t start, vec3_t dir, int damage, int spee
 	VectorCopy (start, bolt->s.old_origin);
 	vectoangles (dir, bolt->s.angles);
 	VectorScale (dir, speed, bolt->velocity);
-	bolt->movetype = MOVETYPE_FLYRICOCHET;
+	bolt->movetype = MOVETYPE_FLYRICOCHET; //want blaster shots to bounce
 	bolt->clipmask = MASK_SHOT;
 	bolt->solid = SOLID_BBOX;
 	bolt->s.effects |= effect;
@@ -476,7 +476,7 @@ void Flash_Explode(edict_t *ent)
     edict_t *target;
 	float Distance, BlindTimeAdd;
  
-    // Move it off the ground so people are sure to see it
+    // Move it off the ground 
     VectorSet(offset, 0, 0, 10);    
     VectorAdd(ent->s.origin, offset, ent->s.origin);
     if (ent->owner->client)
@@ -487,9 +487,9 @@ void Flash_Explode(edict_t *ent)
 	{
 		
         if (!target->client)
-			continue;       // It's not a player
+			continue;       // not player
         if (!visible(ent, target))
-			continue;       // The grenade can't see it
+			continue;       
 
 		VectorSubtract(ent->s.origin, target->s.origin, v);
 		Distance = VectorLength(v);
@@ -512,15 +512,14 @@ void Flash_Explode(edict_t *ent)
 			continue;
 		}
  
-        // Increment the blindness counter
+        // Increments blindness counter
         target->client->blindTime += BLIND_FLASH * 1.5;
         target->client->blindBase = BLIND_FLASH;
  
-        // Let the player know what just happened
-        // (It's just as well, he won't see the message immediately!)
-        gi.cprintf(target, PRINT_HIGH,"You are blinded by a flash grenade!!!\n");
-        // Let the owner of the grenade know it worked
-        gi.cprintf(ent->owner, PRINT_HIGH,"%s is blinded by your flash grenade!\n",target->client->pers.netname);
+        
+        gi.cprintf(target, PRINT_HIGH,"You are blinded by a deku nut!\n");
+        
+        gi.cprintf(ent->owner, PRINT_HIGH,"%s is blinded by your deku nut!\n",target->client->pers.netname);
 	}
 	G_FreeEdict (ent);
 
@@ -656,26 +655,11 @@ void fire_grenade2 (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int 
 	}
 }
 
-void arrow_touch(edict_t *self, edict_t *other, cplane_t *plane, csurface_t *surf)
+void arrow_touch(edict_t *self, edict_t *other, cplane_t *plane, csurface_t *surf)//simialr to blaster
 {
 	int		mod;
 
-	edict_t *pickup_rocket;
-	pickup_rocket = G_Spawn();
-	VectorCopy (self->s.origin, pickup_rocket->s.origin);
-	VectorCopy (self->s.angles, pickup_rocket->s.angles);
-	pickup_rocket->movetype = MOVETYPE_NONE;
-	pickup_rocket->clipmask = MASK_SHOT;
-	pickup_rocket->solid = SOLID_BBOX;
-	VectorClear (pickup_rocket->mins);
-	VectorClear (pickup_rocket->maxs);
-	pickup_rocket->s.modelindex = gi.modelindex ("models/objects/rocket/tris.md2");
-	pickup_rocket->owner = self;
-	gi.linkentity(pickup_rocket);
-
-
 	
-
 	if (other == self->owner)
 		return;
 
@@ -687,25 +671,26 @@ void arrow_touch(edict_t *self, edict_t *other, cplane_t *plane, csurface_t *sur
 
 	if (self->owner->client)
 		PlayerNoise(self->owner, self->s.origin, PNOISE_IMPACT);
-
+	//this is just some code from when i copied another weapon function. ignore it. wont do anything
 	if (other->takedamage)
 	{
-		if (self->spawnflags & 1)
-			mod = MOD_HYPERBLASTER;
-		else
-			mod = MOD_BLASTER;
+		mod = MOD_ROCKET;
 		T_Damage (other, self, self->owner, self->velocity, self->s.origin, plane->normal, self->dmg, 1, DAMAGE_ENERGY, mod);
 	}
 	else
 	{
-		gi.WriteByte (svc_temp_entity);
-		gi.WriteByte (TE_BLASTER);
-		gi.WritePosition (self->s.origin);
-		if (!plane)
-			gi.WriteDir (vec3_origin);
-		else
-			gi.WriteDir (plane->normal);
-		gi.multicast (self->s.origin, MULTICAST_PVS);
+		edict_t *pickup_rocket;
+		pickup_rocket = G_Spawn();
+		VectorCopy (self->s.origin, pickup_rocket->s.origin);
+		VectorCopy (self->s.angles, pickup_rocket->s.angles);
+		pickup_rocket->movetype = MOVETYPE_NONE;
+		pickup_rocket->clipmask = MASK_SHOT;
+		pickup_rocket->solid = SOLID_BBOX;
+		VectorClear (pickup_rocket->mins);
+		VectorClear (pickup_rocket->maxs);
+		pickup_rocket->s.modelindex = gi.modelindex ("models/objects/rocket/tris.md2");
+		pickup_rocket->owner = self;
+		gi.linkentity(pickup_rocket);
 	}
 
 	G_FreeEdict (self);
@@ -787,7 +772,7 @@ void fire_rocket (edict_t *self, vec3_t start, vec3_t dir, int damage, int speed
 	VectorClear (rocket->maxs);
 	rocket->s.modelindex = gi.modelindex ("models/objects/rocket/tris.md2");
 	rocket->owner = self;
-	rocket->touch = arrow_touch;
+	rocket->touch = arrow_touch;//arrows instead
 	rocket->nextthink = level.time + 8000/speed;
 	rocket->think = G_FreeEdict;
 	rocket->dmg = damage;

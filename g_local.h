@@ -181,7 +181,7 @@ MOVETYPE_FLY,
 MOVETYPE_TOSS,			// gravity
 MOVETYPE_FLYMISSILE,	// extra size to monsters
 MOVETYPE_BOUNCE,
-MOVETYPE_FLYRICOCHET
+MOVETYPE_FLYRICOCHET    //movetype to make shots bounce
 } movetype_t;
 
 

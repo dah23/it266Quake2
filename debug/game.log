@@ -1,41 +1,12 @@
-﻿Build started 10/16/2014 3:03:15 AM.
+﻿Build started 10/16/2014 4:35:49 PM.
      1>Project "C:\games\quake2\src\game.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating ".\debug\game.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D BUILDING_REF_GL /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm /EHsc /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\debug\\" /Fd".\debug\vc100.pdb" /FR".\debug\\" /Gd /TC /analyze- /errorReport:prompt g_cmds.c p_weapon.c
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D BUILDING_REF_GL /D _VC80_UPGRADE=0x0600 /D _WINDLL /Gm /EHsc /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\debug\\" /Fd".\debug\vc100.pdb" /FR".\debug\\" /Gd /TC /analyze- /errorReport:prompt p_weapon.c
          p_weapon.c
      1>c:\games\quake2\src\sword.h(23): warning C4047: 'function' : 'int' differs in levels of indirection from 'void *'
      1>c:\games\quake2\src\sword.h(23): warning C4024: 'T_Damage' : different types for formal and actual parameter 10
-         g_cmds.c
-     1>c:\games\quake2\src\g_cmds.c(15): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
-     1>c:\games\quake2\src\g_cmds.c(38): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
-     1>c:\games\quake2\src\g_cmds.c(39): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
-     1>c:\games\quake2\src\g_cmds.c(717): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
-     1>c:\games\quake2\src\g_cmds.c(720): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
-     1>c:\games\quake2\src\g_cmds.c(803): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
-     1>c:\games\quake2\src\g_cmds.c(804): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
-     1>c:\games\quake2\src\g_cmds.c(805): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
-     1>c:\games\quake2\src\g_cmds.c(816): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
-     1>c:\games\quake2\src\g_cmds.c(823): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
-     1>c:\games\quake2\src\g_cmds.c(924): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
-     1>c:\games\quake2\src\g_cmds.c(928): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(110) : see declaration of 'strcat'
-     1>c:\games\quake2\src\g_cmds.c(1098): warning C4013: 'Cmd_Chasecam_Toggle' undefined; assuming extern returning int
-     1>c:\games\quake2\src\g_cmds.c(1100): warning C4013: 'Cmd_Chasecam_Zoom' undefined; assuming extern returning int
-     1>c:\games\quake2\src\g_cmds.c(1104): warning C4013: 'Cmd_Chasecam_Viewlock' undefined; assuming extern returning int
-         Generating Code...
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\games\quake2\src\.\..\debug\game.dll) does not match the Linker's OutputFile property value (C:\games\quake2\debug\gamex86.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(game) does not match the Linker's OutputFile property value (gamex86). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
        Link:
@@ -95,7 +66,7 @@
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\debug\gamex86.dll;#2" /manifest .\debug\game.dll.intermediate.manifest
        BscMake:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\..\debug\game.bsc" .\debug\grapple.sbr .\debug\g_ai.sbr .\debug\g_chase.sbr .\debug\g_cmds.sbr .\debug\g_combat.sbr .\debug\g_func.sbr .\debug\g_items.sbr .\debug\g_main.sbr .\debug\g_misc.sbr .\debug\g_monster.sbr .\debug\g_phys.sbr .\debug\g_save.sbr .\debug\g_spawn.sbr .\debug\g_svcmds.sbr .\debug\g_target.sbr .\debug\g_trigger.sbr .\debug\g_turret.sbr .\debug\g_utils.sbr .\debug\g_weapon.sbr .\debug\m_actor.sbr .\debug\m_berserk.sbr .\debug\m_boss2.sbr .\debug\m_boss3.sbr .\debug\m_boss31.sbr .\debug\m_boss32.sbr .\debug\m_brain.sbr .\debug\m_chick.sbr .\debug\m_flash.sbr .\debug\m_flipper.sbr .\debug\m_float.sbr .\debug\m_flyer.sbr .\debug\m_gladiator.sbr .\debug\m_gunner.sbr .\debug\m_hover.sbr .\debug\m_infantry.sbr .\debug\m_insane.sbr .\debug\m_medic.sbr .\debug\m_move.sbr .\debug\m_mutant.sbr .\debug\m_parasite.sbr .\debug\m_soldier.sbr .\debug\m_supertank.sbr .\debug\m_tank.sbr .\debug\p_client.sbr .\debug\p_hud.sbr .\debug\p_trail.sbr .\debug\p_view.sbr .\debug\p_weapon.sbr .\debug\q_shared.sbr .\debug\s_cam.sbr
+         All outputs are up-to-date.
        FinalizeBuildStatus:
          Deleting file ".\debug\game.unsuccessfulbuild".
          Touching ".\debug\game.lastbuildstate".
@@ -103,4 +74,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.95
+Time Elapsed 00:00:01.31

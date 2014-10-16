@@ -5,7 +5,7 @@
 //defines sword weapon
 void fire_sword ( edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick)
 {
-	trace_t tr;
+	trace_t tr; //what youre aiming at
 	
 	vec3_t          end;
 	VectorMA (start, SWORD_RANGE, aimdir, end);

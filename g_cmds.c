@@ -865,7 +865,7 @@ void Cmd_Say_f (edict_t *ent, qboolean team, qboolean arg0)
 }
 
 
-
+//toggles flash grenade
 void Cmd_FlashGrenade_f(edict_t *ent)
 {
 	if (ent->client->grenadeType == GRENADE_NORMAL)
@@ -880,7 +880,7 @@ void Cmd_FlashGrenade_f(edict_t *ent)
     }
 }
 
-
+//uses hook/disables
 void Cmd_Hook_f(edict_t *ent)
 {
     if(ent->flags & FL_HOOK)
@@ -932,13 +932,13 @@ void Cmd_PlayerList_f(edict_t *ent)
 
 void Cmd_Cloak_f (edict_t *ent) 
 {
-    if (ent->client->cloak) // we're on
+    if (ent->client->cloak) //  on
     {
         ent->client->cloak = 0;
         gi.cprintf(ent,PRINT_HIGH,"Cloaking OFF\n");
         ent->svflags &= ~SVF_NOCLIENT;
     }
-    else // we're off
+    else //  off
     {
         ent->client->cloak = 1;
 
