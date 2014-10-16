@@ -488,6 +488,12 @@ void player_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damag
 	self->takedamage = DAMAGE_YES;
 	self->movetype = MOVETYPE_TOSS;
 
+	if (self->client->chasetoggle > 0)
+	{
+		self->client->chasetoggle = 2;
+		ChasecamRemove(self);
+	}
+
 	self->s.modelindex2 = 0;	// remove linked weapon model
 
 	self->s.angles[0] = 0;
@@ -960,6 +966,14 @@ void CopyToBodyQue (edict_t *ent)
 
 void respawn (edict_t *self)
 {
+	if (self->client->oldplayer)
+		G_FreeEdict (self->client->oldplayer);
+    if (self->client->chasecam)
+		G_FreeEdict (self->client->chasecam);
+
+
+
+
 	if (deathmatch->value || coop->value)
 	{
 		// spectator's don't leave bodies
@@ -1160,6 +1174,7 @@ void PutClientInServer (edict_t *ent)
 	ent->watertype = 0;
 	ent->flags &= ~FL_NO_KNOCKBACK;
 	ent->svflags &= ~SVF_DEADMONSTER;
+	ent->svflags &= ~SVF_NOCLIENT;
 
 	VectorCopy (mins, ent->mins);
 	VectorCopy (maxs, ent->maxs);
@@ -1514,6 +1529,14 @@ void ClientDisconnect (edict_t *ent)
 	ent->classname = "disconnected";
 	ent->client->pers.connected = false;
 
+	if (ent->client->oldplayer) 
+	{
+		ent->client->oldplayer->s.modelindex=0;
+		G_FreeEdict(ent->client->oldplayer);
+	}
+	if (ent->client->chasecam)
+		G_FreeEdict(ent->client->chasecam);
+
 	playernum = ent-g_edicts-1;
 	gi.configstring (CS_PLAYERSKINS+playernum, "");
 }
@@ -1661,8 +1684,21 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 		}
 		else
 		{
-			VectorCopy (pm.viewangles, client->v_angle);
-			VectorCopy (pm.viewangles, client->ps.viewangles);
+			vec3_t angle;
+            VectorCopy (pm.viewangles, angle);
+            if (client->chasetoggle == 3)
+			{
+				client->chasecam->chaseAngle = pm.viewangles[YAW] - client->v_angle[YAW];
+				VectorCopy (client->oldplayer->s.angles, client->v_angle);
+			}
+			else if(client->chasetoggle > 0)
+			{
+				angle[YAW] -= client->chasecam->chaseAngle;
+				VectorCopy (angle, client->v_angle);
+			}
+			else
+				VectorCopy (pm.viewangles, client->v_angle);
+
 		}
 
 		gi.linkentity (ent);
