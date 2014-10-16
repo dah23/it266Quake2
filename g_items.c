@@ -2145,7 +2145,7 @@ tank commander's head
 /* precache */ "items/s_health.wav items/n_health.wav items/l_health.wav items/m_health.wav"
 	},
 
-
+	//made health potion item. adds 20 health
 	{
 		"item_healthpotion",
         Pickup_Powerup,
@@ -2166,7 +2166,7 @@ tank commander's head
 		/* precache */ ""
     },
 
-
+	//magic potion adds 20 magic (cells)
 	{
 		"item_magicpotion",
         Pickup_Powerup,

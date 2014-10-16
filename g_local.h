@@ -50,8 +50,10 @@
 #define FL_POWER_ARMOR			0x00001000	// power armor (if any) is active
 #define FL_RESPAWN				0x80000000	// used for item respawning
 
-
+//flag used for hook
 #define FL_HOOK					0x40000000
+//flag used for shield
+#define FL_SHIELD_UP			0x00010000  //if shield is being used
 
 #define	FRAMETIME		0.1
 
@@ -944,8 +946,18 @@ struct gclient_s
 
 	edict_t		*chase_target;		// player we are chasing
 	qboolean	update_chase;		// need to update chase info?
+	
+	//toggles flash grenades but its on by defualt
 	int			grenadeType;
+	//blind floats
 	float		blindTime, blindBase;
+	
+	//chase cam vars
+	int chasetoggle;
+    float chasedist1;//zoom dist
+    edict_t *chasecam;
+    edict_t *oldplayer;
+
 
 	//Grapple Variables
     edict_t        *hook;        
@@ -1109,9 +1121,11 @@ struct edict_s
 	// common data blocks
 	moveinfo_t		moveinfo;
 	monsterinfo_t	monsterinfo;
+	//chase vars
+	float	chaseAngle;
+    float   chasedist2; //current dist from player
 };
 
-#define		GRENADE_NORMAL		0
-#define		GRENADE_FLASH		1
-
-void stuffcmd(edict_t *e, char *s);
+#define		GRENADE_NORMAL		0 //puts back to normal nades
+#define		GRENADE_FLASH		1 //switches to flash(deku nut) nades
+extern void CheckChasecam_Viewent(edict_t *ent);

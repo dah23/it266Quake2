@@ -1,3 +1,4 @@
+//hookshot c file
 #include "g_local.h"
 #include "grapple.h"
 
@@ -24,7 +25,7 @@ qboolean Is_Grappling (gclient_t *client)
 
 void Grapple_Touch(edict_t *hook, edict_t *other, cplane_t *plane, csurface_t *surf)
 {
-    // Release if hitting its owner
+    // Release it if you're hitting yourself
     if (other == hook->owner)
         return;
     if (!Is_Grappling(hook->owner->client) && hook->health == 0) {
@@ -45,7 +46,7 @@ void Grapple_Touch(edict_t *hook, edict_t *other, cplane_t *plane, csurface_t *s
     gi.WritePosition (hook->s.origin);
     gi.WriteDir (plane->normal);
     gi.multicast (hook->s.origin, MULTICAST_PVS);
-    //gi.sound(hook, CHAN_ITEM, gi.soundindex("hook/hit.wav"), 1, ATTN_NORM, 0);//uncomment this line to make it play a sound         //when your hook hits a wall
+    
 
    if (other != NULL) {
         T_Damage(other, hook, hook->owner, hook->velocity, hook->s.origin, plane->normal, HOOK_DAMAGE, 0, 0, MOD_SUICIDE);
@@ -102,8 +103,6 @@ void Think_Grapple(edict_t *hook)
                 Release_Grapple(hook);
                 return;
             }
-
-            // Movement code is handled with the MOVETYPE_PUSH stuff in g_phys.c
 
             T_Damage(obj, hook, hook->owner, hook->velocity, hook->s.origin, vec3_origin, HOOK_DAMAGE, 0, 0, MOD_SUICIDE);
         }
@@ -208,25 +207,26 @@ void Pull_Grapple (edict_t *player)
     VectorSubtract(player->client->hook->s.origin, player->s.origin, hookDir);
     length = VectorNormalize(hookDir);
 
-    VectorScale(hookDir, /*player->scale * */ PULL_SPEED, player->velocity);
+    VectorScale(hookDir,  PULL_SPEED, player->velocity);
     VectorCopy(hookDir, player->movedir);
 
-//To move the player off the ground just a bit so he doesn't stay stuck (version 3.17 bug)
+
     if (player->velocity[2] > 0) {
 
         vec3_t traceTo;
         trace_t trace;
 
-        // find the point immediately above the player's origin
+		//traces and sees if player can be pulled above his/her origin
+        
         VectorCopy(player->s.origin, traceTo);
         traceTo[2] += 1;
 
-        // trace to it
+        
         trace = gi.trace(traceTo, player->mins, player->maxs, traceTo, player, MASK_PLAYERSOLID);
 
-        // if there isn't a solid immediately above the player
+        
         if (!trace.startsolid) {
-            player->s.origin[2] += 1;    // make sure player off ground
+            player->s.origin[2] += 1;    
         }
     }
 

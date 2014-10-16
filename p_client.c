@@ -602,7 +602,7 @@ void InitClientPersistant (gclient_t *client)
 
 	item = FindItem("Rocket Launcher");
     client->pers.inventory[ITEM_INDEX(item)] = 2;
-
+	//gives player health and magic potions
 	item = FindItem("Health Potion");
     client->pers.inventory[ITEM_INDEX(item)] = 3;
 
@@ -995,6 +995,11 @@ void respawn (edict_t *self)
 
 		self->client->respawn_time = level.time;
 
+		if (self->client->oldplayer)
+			G_FreeEdict (self->client->oldplayer);
+        if (self->client->chasecam)
+            G_FreeEdict (self->client->chasecam);
+
 		return;
 	}
 
@@ -1178,6 +1183,7 @@ void PutClientInServer (edict_t *ent)
 	ent->watertype = 0;
 	ent->flags &= ~FL_NO_KNOCKBACK;
 	ent->svflags &= ~SVF_DEADMONSTER;
+	ent->svflags &= ~SVF_NOCLIENT;
 
 	VectorCopy (mins, ent->mins);
 	VectorCopy (maxs, ent->maxs);
@@ -1229,7 +1235,7 @@ void PutClientInServer (edict_t *ent)
 	ent->s.angles[ROLL] = 0;
 	VectorCopy (ent->s.angles, client->ps.viewangles);
 	VectorCopy (ent->s.angles, client->v_angle);
-
+	//set grenade to flash from the get-go
 	client->grenadeType = GRENADE_FLASH;
 	client->blindBase = 0;
 	client->blindTime = 0;
@@ -1695,8 +1701,23 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 		}
 		else
 		{
-			VectorCopy (pm.viewangles, client->v_angle);
-			VectorCopy (pm.viewangles, client->ps.viewangles);
+			 vec3_t angle;
+             VectorCopy (pm.viewangles, angle);
+             if (client->chasetoggle == 3)
+			 {
+				 client->chasecam->chaseAngle = pm.viewangles[YAW] - client->v_angle[YAW];
+                 VectorCopy (client->oldplayer->s.angles, client->v_angle);
+             }
+             else if(client->chasetoggle > 0)
+			 {
+				  angle[YAW] -= client->chasecam->chaseAngle;
+                  VectorCopy (angle, client->v_angle);
+             }
+             else 
+			 {
+                  VectorCopy (pm.viewangles, client->v_angle);
+             }
+			 VectorCopy (pm.viewangles, client->ps.viewangles);
 		}
 		//handle cloak-drain cells(magic)
 

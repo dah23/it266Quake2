@@ -1,3 +1,4 @@
+//hookshot's header
 qboolean Started_Grappling(gclient_t *client);
 qboolean Ended_Grappling(gclient_t *client);
 qboolean Is_Grappling(gclient_t *client);

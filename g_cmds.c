@@ -1,6 +1,6 @@
 #include "g_local.h"
 #include "m_player.h"
-#include "grapple.h"
+#include "grapple.h" //looks in grapple header for hook stuff
 
 char *ClientTeam (edict_t *ent)
 {
@@ -950,7 +950,7 @@ void Cmd_Cloak_f (edict_t *ent)
     }
 }
 
-
+//deku leaf pushes enemy
 void CMD_DekuLeaf_f(edict_t *ent)
 {
 	vec3_t  start;
@@ -967,6 +967,29 @@ void CMD_DekuLeaf_f(edict_t *ent)
 	{
 		   VectorScale(forward, 5000, forward);
 		VectorAdd(forward, tr.ent->velocity, tr.ent->velocity);
+	}
+
+
+}
+//shield command def
+void Cmd_Shield(edict_t *ent)
+{
+	if(ent->flags & FL_SHIELD_UP)
+	{
+		ent->flags &= ~FL_SHIELD_UP;
+		gi.cprintf(ent, PRINT_HIGH,"Shield is down");
+		ent->takedamage=DAMAGE_YES;
+				
+		
+		
+	}
+	else 
+	{	
+		gi.cprintf(ent, PRINT_HIGH,"Shield is Up");
+		ent->takedamage=DAMAGE_NO;
+		ent->flags |= FL_SHIELD_UP;
+						
+		
 	}
 
 
@@ -1068,6 +1091,23 @@ void ClientCommand (edict_t *ent)
 		Cmd_FlashGrenade_f (ent);
 	else if (Q_stricmp (cmd, "leaf") == 0)
 		CMD_DekuLeaf_f(ent);
+	else if (Q_stricmp(cmd, "shield") == 0)
+		Cmd_Shield (ent);
+	else if (Q_stricmp (cmd, "chasecam") == 0)
+		Cmd_Chasecam_Toggle (ent);
+   else if (Q_stricmp (cmd, "camzoomout") == 0)
+        Cmd_Chasecam_Zoom(ent, "out");
+   else if (Q_stricmp (cmd, "camzoomin") == 0)
+        Cmd_Chasecam_Zoom(ent, "in");
+   else if (Q_stricmp (cmd, "camviewlock") == 0)
+        Cmd_Chasecam_Viewlock(ent);
+   else if (Q_stricmp (cmd, "camreset") == 0)
+   {
+        if (ent->client->chasetoggle != 3 && ent->client->chasetoggle != 0)
+			ent->client->chasecam->chaseAngle = 0;
+   }
+
+
 	else	// anything that doesn't match a command will be a chat
 		Cmd_Say_f (ent, false, true);
 }
