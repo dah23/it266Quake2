@@ -507,13 +507,13 @@ void Flash_Explode(edict_t *ent)
 
 		if (target == ent->owner)
 		{
-			target->client->blindTime += BlindTimeAdd * .3;
+			target->client->blindTime += BlindTimeAdd * .3;//dfu3:might want to make a constant 
 			target->client->blindBase = BLIND_FLASH;
 			continue;
 		}
  
         // Increments blindness counter
-        target->client->blindTime += BLIND_FLASH * 1.5;
+        target->client->blindTime += BLIND_FLASH * 1.5;//dfu3:might want to make a constant
         target->client->blindBase = BLIND_FLASH;
  
         

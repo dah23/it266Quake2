@@ -2145,6 +2145,8 @@ tank commander's head
 /* precache */ "items/s_health.wav items/n_health.wav items/l_health.wav items/m_health.wav"
 	},
 
+
+	//dfu3: couldve altered the already exhisting health pickup
 	//made health potion item. adds 20 health
 	{
 		"item_healthpotion",
