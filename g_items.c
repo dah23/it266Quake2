@@ -2147,6 +2147,7 @@ tank commander's head
 
 
 	//dfu3: couldve altered the already exhisting health pickup
+	//dah23: i want to make a health consumable and this is the method i chose to accomplish it. i see your point though but i wanted to leave the regular health packs alone since theres heartpieces in zelda
 	//made health potion item. adds 20 health
 	{
 		"item_healthpotion",

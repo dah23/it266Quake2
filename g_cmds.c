@@ -867,8 +867,8 @@ void Cmd_Say_f (edict_t *ent, qboolean team, qboolean arg0)
 
 //toggles flash grenade
 void Cmd_FlashGrenade_f(edict_t *ent)//dfu3:couldve linked this button to the actual fire_grenade function instead of just toggling
-{
-	if (ent->client->grenadeType == GRENADE_NORMAL)
+{                                    //dah23(me): I did this for testing and left it in. I set it to flash grenades by defualt. If you wanted regular 
+	if (ent->client->grenadeType == GRENADE_NORMAL)//grenades this would toggle it.
     {
 		gi.cprintf(ent, PRINT_HIGH, "Flash grenades selected.\n");
         ent->client->grenadeType = GRENADE_FLASH;
@@ -931,7 +931,7 @@ void Cmd_PlayerList_f(edict_t *ent)
 }
 
 void Cmd_Cloak_f (edict_t *ent) 
-{
+{    //dah23(me) responding to below. If an object is set with a flag SVF_NOCLIENT, Quake 2 doesn't draw an entity or model for it. thats the purpose of it.
 	//dfu3: using the NOCLIENT flag for cloak might not send important info to other clients (other then not seeing them)
     if (ent->client->cloak) //  on
     {
@@ -942,7 +942,7 @@ void Cmd_Cloak_f (edict_t *ent)
     else //  off
     {
         ent->client->cloak = 1;//dfu3 shouldnt use integers to keep track of toggling loak use qboolean
-
+		                       //dah23(me) don't see why it matters too much. 
         ent->client->cloakrun = 0;
 
         ent->client->cloakoff = 0;
